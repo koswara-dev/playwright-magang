@@ -1,0 +1,31 @@
+{
+  "name": "playwright-magang",
+  "version": "1.0.0",
+  "description": "Industrial Standard Playwright E2E Automation for Hadir Magang",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:positive": "playwright test --grep \"@positive\"",
+    "test:negative": "playwright test --grep \"@negative\"",
+    "test:report": "playwright show-report",
+    "generate:scenarios": "node generate-scenarios-xlsx.js"
+  },
+  "keywords": [
+    "playwright",
+    "automation",
+    "e2e",
+    "qa",
+    "testing"
+  ],
+  "author": "JuaraCoding SQA Batch 31",
+  "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "^9.5.0",
+    "dotenv": "^16.4.7",
+    "exceljs": "^4.4.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.50.1"
+  }
+}
