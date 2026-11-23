@@ -1,7 +1,7 @@
 # 🎭 Playwright E2E Automation - Hadir Magang
 
 [![Playwright Tests CI/CD](https://github.com/koswara-dev/playwright-magang/actions/workflows/playwright.yml/badge.svg)](https://github.com/koswara-dev/playwright-magang/actions/workflows/playwright.yml)
-[![Node.js Version](https://img.shields.io/badge/Node.js-v20%2B-brightgreen)](https://nodejs.org/)
+[![Node.js Version](https://img.shields.io/badge/Node.js-v24%20(latest)-brightgreen)](https://nodejs.org/)
 [![Playwright](https://img.shields.io/badge/Playwright-v1.50%2B-blue)](https://playwright.dev/)
 [![Browser](https://img.shields.io/badge/Browser-Google%20Chrome%20(Headless)-orange)](https://www.google.com/chrome/)
 
@@ -79,8 +79,8 @@ The test cases are documented in [Skenario_Test_Register_User.xlsx](file:///test
 
 ## 🛠️ Prerequisites
 
-- **Node.js:** v20+ or v22+
-- **NPM:** v10+
+- **Node.js:** v24 (latest)
+- **NPM:** v11+
 - **Google Chrome:** Installed on system (or auto-installed in CI)
 
 ---

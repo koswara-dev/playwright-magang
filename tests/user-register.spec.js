@@ -73,10 +73,9 @@ test.describe('Feature: User Management - Register User V2', () => {
       // Click submit
       await registerPage.submit();
 
-      // Verify validation toast "Foto tidak boleh kosong" appears
-      const toast = await registerPage.getToastMessage();
-      console.log('[TEST] Missing photo toast:', toast);
-      expect(toast).toContain('Foto tidak boleh kosong');
+      // Verify validation toast/snackbar "Foto tidak boleh kosong" appears
+      const snackbar = page.locator('.MuiSnackbarContent-message, .MuiSnackbar-root, .MuiAlert-message, [role="alert"]').filter({ hasText: 'Foto tidak boleh kosong' }).first();
+      await expect(snackbar).toBeVisible({ timeout: 10000 });
 
       // Verify user remains on the register page
       expect(page.url()).toContain('/management/user-v2/register');
