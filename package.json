@@ -9,7 +9,11 @@
     "test:positive": "playwright test --grep \"@positive\"",
     "test:negative": "playwright test --grep \"@negative\"",
     "test:report": "playwright show-report",
-    "generate:scenarios": "node generate-scenarios-xlsx.js"
+    "generate:scenarios": "node generate-scenarios-xlsx.js",
+    "allure:generate": "allure generate allure-results -o allure-report --clean",
+    "allure:open": "allure open allure-report",
+    "allure:serve": "allure serve allure-results",
+    "test:allure": "playwright test && allure generate allure-results -o allure-report --clean"
   },
   "keywords": [
     "playwright",
@@ -26,6 +30,8 @@
     "exceljs": "^4.4.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.50.1"
+    "@playwright/test": "^1.50.1",
+    "allure-commandline": "^2.46.2",
+    "allure-playwright": "^3.15.0"
   }
 }

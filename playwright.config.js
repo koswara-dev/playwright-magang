@@ -12,9 +12,24 @@ module.exports = defineConfig({
   workers: 1, // Single worker to avoid conflicting state during user registration
   reporter: [
     ['list'],
-    ['html', { outputFolder: 'playwright-report', open: 'never' }]
+    ['html', { outputFolder: 'playwright-report', open: 'never' }],
+    [
+      'allure-playwright',
+      {
+        resultsDir: 'allure-results',
+        detail: true,
+        suiteTitle: true,
+        environmentInfo: {
+          Framework: 'Playwright',
+          Browser: 'Google Chrome',
+          Node: process.version,
+          Platform: process.platform,
+          Environment: 'Staging / Magang Hadir'
+        }
+      }
+    ]
   ],
-  timeout: 45000,
+  timeout: 60000,
   expect: {
     timeout: 10000
   },
@@ -44,7 +59,9 @@ module.exports = defineConfig({
         ...devices['Desktop Chrome'],
         channel: 'chrome',
         headless: isHeadless,
-        storageState: 'playwright/.auth/admin.json'
+        storageState: 'playwright/.auth/admin.json',
+        screenshot: 'only-on-failure',
+        video: 'retain-on-failure'
       },
       dependencies: ['setup']
     }

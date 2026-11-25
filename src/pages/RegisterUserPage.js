@@ -59,9 +59,9 @@ class RegisterUserPage extends BasePage {
     if (await fieldLocator.count()) {
       await fieldLocator.click();
 
-      // Explicitly wait for dynamic API options to populate
+      // Wait for dynamic API options with a reasonable 1.5s timeout
       const optionLocator = this.page.locator('li[role="option"], .MuiAutocomplete-option, .MuiMenuItem-root');
-      await optionLocator.first().waitFor({ state: 'visible', timeout: 5000 }).catch(() => {});
+      await optionLocator.first().waitFor({ state: 'visible', timeout: 1500 }).catch(() => {});
 
       if (await optionLocator.count()) {
         await optionLocator.first().click();
@@ -69,7 +69,7 @@ class RegisterUserPage extends BasePage {
         await this.page.keyboard.press('ArrowDown');
         await this.page.keyboard.press('Enter');
       }
-      await this.page.waitForTimeout(300);
+      await this.page.waitForTimeout(200);
     }
   }
 

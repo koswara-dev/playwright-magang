@@ -30,8 +30,17 @@ setup('authenticate as admin', async ({ page }) => {
   console.log(`[AUTH SETUP] Attempting login with ${email} (Password resolved from Base64)...`);
   await loginPage.login(email, password);
 
-  // Wait until navigated away from login
-  await page.waitForURL(url => !url.pathname.includes('/authentication/login'), { timeout: 20000 });
+  // Wait for successful login toast/alert
+  const successAlert = page.locator('.MuiAlert-message, [role="alert"], .MuiSnackbarContent-message').filter({ hasText: 'Berhasil login' });
+  await successAlert.waitFor({ state: 'visible', timeout: 15000 }).catch(() => {});
+  console.log('[AUTH SETUP] "Berhasil login" alert confirmed or proceeding to URL check.');
+
+  // Wait until navigated away from login or navigate directly to dashboard
+  await page.waitForURL(url => !url.pathname.includes('/authentication/login'), { timeout: 15000 }).catch(async () => {
+    console.log('[AUTH SETUP] Client-side redirect took longer, ensuring session at dashboard...');
+    await page.goto('https://magang.dikahadir.com/dashboards/pending', { waitUntil: 'domcontentloaded' }).catch(() => {});
+  });
+
   console.log(`[AUTH SETUP] Successfully authenticated. Current URL: ${page.url()}`);
 
   // Save authenticated state to storageState

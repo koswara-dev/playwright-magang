@@ -3,6 +3,7 @@
 [![Playwright Tests CI/CD](https://github.com/koswara-dev/playwright-magang/actions/workflows/playwright.yml/badge.svg)](https://github.com/koswara-dev/playwright-magang/actions/workflows/playwright.yml)
 [![Node.js Version](https://img.shields.io/badge/Node.js-v24%20(latest)-brightgreen)](https://nodejs.org/)
 [![Playwright](https://img.shields.io/badge/Playwright-v1.50%2B-blue)](https://playwright.dev/)
+[![Allure Report](https://img.shields.io/badge/Allure%20Report-Integrated-yellow)](https://allurereport.org/)
 [![Browser](https://img.shields.io/badge/Browser-Google%20Chrome%20(Headless)-orange)](https://www.google.com/chrome/)
 
 Automated End-to-End (E2E) testing framework built with **Playwright**, **Node.js**, and the **Page Object Model (POM)** pattern for the **User Registration** feature (`/management/user-v2/register`) of **Hadir Magang** ([https://magang.dikahadir.com](https://magang.dikahadir.com)).
@@ -128,6 +129,10 @@ The test cases are documented in [Skenario_Test_Register_User.xlsx](file:///test
 | `npm run test:negative` | Run only negative validation test scenarios (`@negative`) |
 | `npm run test:report` | Open the generated Playwright HTML Test Report |
 | `npm run generate:scenarios` | Regenerate the formatted Excel test scenarios spreadsheet |
+| `npm run allure:generate` | Generate Allure HTML report from `allure-results/` into `allure-report/` |
+| `npm run allure:open` | Open previously generated Allure HTML report in default browser |
+| `npm run allure:serve` | Generate and serve live Allure report on a local web server |
+| `npm run test:allure` | Run tests and immediately compile the Allure HTML report |
 
 ---
 
